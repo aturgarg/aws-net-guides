@@ -21,7 +21,7 @@ namespace S3_Example
             // AWS_ACCESS_KEY_ID & AWS_SECRET_ACCESS_KEY, or have an application settings
             // file. See https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/net-dg-config-creds.html
             // for more details and other constructor options.
-            using (var s3 = new AmazonS3Client(RegionEndpoint.USWest2))
+            using (var s3 = new AmazonS3Client(RegionEndpoint.USEast1))
             {
                 CreateBucket(s3);
                 Console.WriteLine("Press enter to continue...");
@@ -56,7 +56,7 @@ namespace S3_Example
             var req = new PutBucketRequest
             {
                 BucketName = bucketName,
-                BucketRegion = S3Region.USW2
+                BucketRegion = S3Region.US
             };
             Task<PutBucketResponse> res = s3.PutBucketAsync(req);
             Task.WaitAll(res);
